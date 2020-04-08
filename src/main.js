@@ -384,7 +384,7 @@ const boardElement = siteMainElement.querySelector(`.board`);
 const taskListElement = boardElement.querySelector(`.board__tasks`);
 
 render(taskListElement, createTaskEditTemplate());
-for(let i = 0; i < TASK_COUNT; i++) {
+for (let i = 0; i < TASK_COUNT; i++) {
   render(taskListElement, createTastTemplate());
 }
 
