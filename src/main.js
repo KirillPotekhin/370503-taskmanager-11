@@ -1,6 +1,8 @@
-"use strict";
+'use strict';
 
-const createSiteMenuTempalte = () => {
+const TASK_COUNT = 3;
+
+const createSiteMainTempalte = () => {
   return (
     `<section class="control__btn-wrap">
       <input
@@ -97,13 +99,17 @@ const createFilterTemplate = () => {
   );
 };
 
-const createSortTemplate = () => {
+const createBoardTemplate = () => {
   return (
-    `<div class="board__filter-list">
-      <a href="#" class="board__filter" data-sort-type="default">SORT BY DEFAULT</a>
-      <a href="#" class="board__filter" data-sort-type="date-up">SORT BY DATE up</a>
-      <a href="#" class="board__filter" data-sort-type="date-down">SORT BY DATE down</a>
-    </div>`
+    `<section class="board container">
+      <div class="board__filter-list">
+        <a href="#" class="board__filter" data-sort-type="default">SORT BY DEFAULT</a>
+        <a href="#" class="board__filter" data-sort-type="date-up">SORT BY DATE up</a>
+        <a href="#" class="board__filter" data-sort-type="date-down">SORT BY DATE down</a>
+      </div>
+
+      <div class="board__tasks"></div>
+    </section>`
   );
 };
 
@@ -363,6 +369,23 @@ const createLoadMoreButtonTemplate = () => {
   );
 };
 
-const render = (container, template, place = "beforeend") => {
+const render = (container, template, place = 'beforeend') => {
   return container.insertAdjacentHTML(place, template);
 };
+
+const siteMainElement = document.querySelector('.main');
+const siteHeaderElement = siteMainElement.querySelector('.main__control');
+
+render(siteHeaderElement, createSiteMainTempalte());
+render(siteMainElement, createFilterTemplate());
+render(siteMainElement, createBoardTemplate());
+
+const boardElement = siteMainElement.querySelector('.board');
+const taskListElement = boardElement.querySelector('.board__tasks');
+
+render(taskListElement, createTaskEditTemplate());
+for(let i = 0; i < TASK_COUNT; i++) {
+  render(taskListElement, createTastTemplate());
+}
+
+render(boardElement, createLoadMoreButtonTemplate());
