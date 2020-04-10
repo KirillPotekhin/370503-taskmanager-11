@@ -1,4 +1,4 @@
-export const createSiteMainTempalte = () => {
+export const createSiteMainTemplate = () => {
   return (
     `<section class="control__btn-wrap">
       <input

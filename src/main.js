@@ -1,10 +1,10 @@
 const TASK_COUNT = 3;
 
-import {createSiteMainTempalte} from "./components/site-main.js";
+import {createSiteMainTemplate} from "./components/site-main.js";
 import {createFilterTemplate} from "./components/filter.js";
 import {createBoardTemplate} from "./components/board.js";
 import {createTaskEditTemplate} from "./components/task-edit.js";
-import {createTastTemplate} from "./components/task.js";
+import {createTaskTemplate} from "./components/task.js";
 import {createLoadMoreButtonTemplate} from "./components/load-more-button.js";
 
 const render = (container, template, place = `beforeend`) => {
