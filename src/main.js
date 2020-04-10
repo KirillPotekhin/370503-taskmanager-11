@@ -14,7 +14,7 @@ const render = (container, template, place = `beforeend`) => {
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
-render(siteHeaderElement, createSiteMainTempalte());
+render(siteHeaderElement, createSiteMainTemplate());
 render(siteMainElement, createFilterTemplate());
 render(siteMainElement, createBoardTemplate());
 
@@ -23,7 +23,7 @@ const taskListElement = boardElement.querySelector(`.board__tasks`);
 
 render(taskListElement, createTaskEditTemplate());
 for (let i = 0; i < TASK_COUNT; i++) {
-  render(taskListElement, createTastTemplate());
+  render(taskListElement, createTaskTemplate());
 }
 
 render(boardElement, createLoadMoreButtonTemplate());
