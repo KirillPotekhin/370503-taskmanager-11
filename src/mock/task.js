@@ -7,7 +7,7 @@ const generateTask = () => {
       `Сделать домашку`,
       `Пройти интенсив на соточку`
     ][Math.floor(Math.random() * 3)],
-    dueDate: Math.random() > 0.5 ? new Date (Date.now() - 7*24*60*60*1000 + Math.floor(Math.random() * 14*24*60*60*1000)) : null,
+    dueDate: Math.random() > 0.5 ? new Date(Date.now() - 7 * 24 * 60 * 60 * 1000 + Math.floor(Math.random() * 14 * 24 * 60 * 60 * 1000)) : null,
     repeatingDays: {
       "mo": Math.random() > 0.5,
       "tu": Math.random() > 0.5,
@@ -24,7 +24,7 @@ const generateTask = () => {
 };
 
 const generateTasks = (count) => {
-  return new Array(count).fill('').map(generateTask);
+  return new Array(count).fill(``).map(generateTask);
 };
 
 export {generateTask, generateTasks};
