@@ -9,6 +9,7 @@ import {createTaskEditTemplate} from "./components/task-edit.js";
 import {createTaskTemplate} from "./components/task.js";
 import {createLoadMoreButtonTemplate} from "./components/load-more-button.js";
 import {generateTask, generateTasks} from "./mock/task.js";
+import {generateFilters} from "./mock/filter.js"
 
 const render = (container, template, place = `beforeend`) => {
   return container.insertAdjacentHTML(place, template);
@@ -18,9 +19,10 @@ const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
 const tasks = generateTasks(TASK_COUNT);
+const filters = generateFilters(tasks);
 
 render(siteHeaderElement, createSiteMainTemplate());
-render(siteMainElement, createFilterTemplate());
+render(siteMainElement, createFilterTemplate(filters));
 render(siteMainElement, createBoardTemplate());
 
 const boardElement = siteMainElement.querySelector(`.board`);
