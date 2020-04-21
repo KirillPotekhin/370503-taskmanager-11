@@ -24,7 +24,7 @@ const generateTask = () => {
 };
 
 const generateTasks = (count) => {
-  return new Array(count).fill(``).map(generateTask);
+  return Array.from({length: count}, generateTask);
 };
 
 export {generateTask, generateTasks};
